@@ -1,0 +1,57 @@
+[[plugin.deps]]
+use = "orhnk/simple-clipboard"
+rev = "7775a80"
+hash = "9b8f2573da54334b04747e51556040cc"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "8945e54"
+hash = "aef2b1a805b80cce573bb766f1459d88"
+
+[[plugin.deps]]
+use = "AnirudhG07/plugins-yazi:copy-file-contents"
+rev = "524c52c"
+hash = "27c50e6bc15c09096505b805b238ade0"
+
+[[plugin.deps]]
+use = "grappas/wl-clipboard"
+rev = "c4edc4f"
+hash = "51ff959c3c26cb3889589a0f8d394f14"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "8945e54"
+hash = "f3ade4dba8fb56b85e8363b66f677f9"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "8945e54"
+hash = "b482f4f2d3c4e0aa3f8db89a95699439"
+
+[[plugin.deps]]
+use = "Ape/open-with-cmd"
+rev = "433cf30"
+hash = "86e0312b01bc5762813c6c1d0517f073"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "b23e3a4"
+hash = "98e5f5af3efd3ba8bc2db0720187cc83"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "2496cd9"
+hash = "5b9dea47776a30946cfbf83232d18fb1"
+
+[[plugin.deps]]
+use = "kirasok/torrent-preview"
+rev = "4ca5996"
+hash = "6af40ce6b2cd849b5fa32de04a598b06"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "b12a9ab"
+hash = "2f1053f89d1a301a648ab181d0948e38"
+
+[flavor]
+deps = []

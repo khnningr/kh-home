@@ -1,0 +1,69 @@
+# Aliases
+alias ls='ls --color'
+alias nvim='nvim'
+alias c='clear'
+alias m='mirror'
+alias s='paru'
+alias u='sudo pacman -Syu && paru -Syu' # dnf upgrade
+alias i='paru -S --needed' # dnf install
+alias r='paru -Rns' # dnf remove
+alias lz='exa --icons --color=always'
+alias parus="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S --needed"
+alias parux="paru -Qq | fzf --preview 'paru -Qil {}' --layout=reverse --bind 'enter:execute(paru -Qil {} | bat)'"
+alias parui="paru -Qe | fzf --preview 'paru -Qil | awk {$1}' --layout=reverse --bind 'enter:execute(paru -Qil | awk {$1} | bat)'"
+alias op="xdg-open"
+
+# Confirm before overwriting something
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -I"
+
+alias ..='cd ..'
+alias cat='bat'
+alias v='nvim'
+alias p="sudo pacman"
+
+# git
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl= 'git log'
+
+# Colorize grep output
+alias grep="grep --color=auto"
+
+# Colorize ls output
+#alias ls="exa --icons"
+alias l='ls -lh'
+alias la='ls -a'
+alias lla='ls -lah'
+alias lt='ls -T'
+
+# Easier to read disk
+alias df='df -h'
+alias free='free -m'
+
+# get top process eating cpu
+alias pscpu='ps auxf | sort -nr -k 3 | head -5'
+# get top process eating memory
+alias pscpu='ps auxf | sort -nr -k 4 | head -5'
+
+# Traversing fast through directories
+alias uni='cd ~/Documents/uni/'
+alias cod='cd ~/Documents/coding/'
+
+# Flex on em
+alias pf='pfetch'
+alias nf='neofetch'
+
+# Devour windows
+alias mpv="devour mpv"
+alias nsxiv="devour nsxiv"
+alias zathura="devour zathura"
+
+alias pyenv='python3 -m venv venv && source venv/bin/activate'
+alias copy-img='wl-copy <' # Solo copia una imagen.
+alias copy-txt='wl-copy' # Copia solo el texto.
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias vi='nvim'

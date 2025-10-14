@@ -1,0 +1,208 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p) por defecto; actualemente alt-space.
+{
+  // Apariencia
+  "buffer_font_family": "IosevkaTerm Nerd Font Propo", // Fonts family en código.
+  "ui_font_family": "IosevkaTerm Nerd Font Propo", // Font family en interfaz.
+  "buffer_font_size": 16, // Tamaño de las fonts en código.
+  "ui_font_size": 16, // Tamaño de las fonts en interfaz.
+
+  "icon_theme": "Colored Zed Icons Theme Dark", // Tema de iconos. Extensión: colored-zed-icons-theme
+
+  // Configuración del tema del IDE.
+  "theme": {
+    "mode": "system",
+    "light": "Github Dark",
+    "dark": "Github Dark" // Extensión: github-theme
+    // "dark": "Tokyo Night"
+  },
+
+  "wrap_guides": [80, 120], // Establece líneas que indican, cierta cantidad de carácteres.
+  "show_wrap_guides": true, //
+
+  "show_whitespaces": "boundary", // Muestro los espacios que existen en blanco, en el código.
+
+  "hide_mouse": "on_typing_and_movement", // Ocultar el mouse al escribir y moverse.
+  "cursor_blink": true, // Parpadeo del cursor.
+
+  // Ajustes del panel de proyecto.
+  "project_panel": {
+    "dock": "right" // Selecciona una ubicación para el panel. «right | left»
+  },
+
+  // Barra de herramientas.
+  "toolbar": {
+    "breadcrumbs": true, // Muestra la ruta de dirección del archivo en edición.
+    "quick_actions": false, // Visibilidad de los accesos directos.
+    "selections_menu": false // Muestra el acceso directo de selección; si quick_acttions = false, no se muestra tampoco.
+  },
+
+  // Pestañas (tabs)
+  "tab_bar": {
+    "show": true // Visibilidad de las tabs. (true | false)
+  },
+
+  // Prestañas de vista previa (se ven en cursiva)
+  // Para abrir permanetemente hacer:
+  // Hacer doble clic en el archivo
+  // Hacer doble clic en el encabezado de la pestaña
+  "preview_tabs": {
+    "enabled": true, // Habilitar vista previa de tabs.
+    "enable_preview_from_file_finder": false, // Abrir desde el buscador de archivos en modo vista previa.
+    "enable_preview_from_code_navigation": false // Reemplazo de la pestaña en modo vista previa.
+  },
+
+  // Barra de desplazamiento (scrollbar).
+  "scrollbar": {
+    "show": "never" // Visibilidad de la scrollbar.
+  },
+
+  // Líneas de indentación o sangría, ayuda visual.
+  "indent_guides": {
+    "enabled": true, // Habilita visibilidad de indentación.
+    "coloring": "indent_aware" // Modo de visibilidad; indent_aware = según su nivel.
+  },
+
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+
+  "features": {
+    "edit_prediction_provider": "zed", // Define el proveedor de predicción de texto.
+    "copilot": false
+  },
+
+  "show_edit_predictions": false,
+
+  //Muestra los tipos y nombres de los parametros.
+  "inlay_hints": {
+    "enabled": true
+  },
+
+  "line_indicator_format": "long",
+
+  // Guardado automatico.
+  "autosave": "on_focus_change", // Autoguardado.
+  "format_on_save": "on",
+
+  // Ajustes tipo Vim
+  "vim_mode": false, // Vim mode: false | true
+  "relative_line_numbers": true, // Númeración por líneas, relativa: true | false
+  "vim": {
+    "use_system_clipboard": "always" //Uso del portapapeles del sistema.
+  },
+
+  "terminal": {
+    "font_family": "IosevkaTerm Nerd Font Mono"
+  },
+
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+
+  "languages": {
+    "Python": {
+      "tab_size": 4,
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+
+    "LaTeX": {
+      "soft_wrap": "preferred_line_length"
+    },
+
+    "JavaScript": {
+      "tab_size": 2,
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+
+    "Markdown": {
+      "enable_language_server": false
+    },
+
+    "Rust": {
+      "formatter": "language_server",
+      "format_on_save": "on"
+    }
+  },
+
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis.inlayHints.variableTypes": true,
+        "basedpyright.analysis.inlayHints.callArgumentNames": true,
+        "basedpyright.analysis.inlayHints.functionReturnTypes": true
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 80,
+          "lint": {
+            "extendSelect": ["I"]
+          }
+        }
+      }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterName": true
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        }
+      }
+    }
+  },
+
+  // Extensiones. Este comando muestra el nombre de las extensiones:
+  // ls ~/.local/share/zed/extensions/installed
+  "auto_install_extensions": {
+    "asciidoc": true,
+    "basher": true,
+    "colored-zed-icons-theme": true,
+    "fish": true,
+    "github-theme": true,
+    "html": true,
+    "hyprlang": true,
+    "java": true,
+    "lua": true,
+    "markdown-oxide": true,
+    "meson": true,
+    "nix": true,
+    "plantuml": true,
+    "powershell": true,
+    "pylsp": true,
+    "python": true,
+    "python-snippets": true,
+    "qml": true,
+    "rpmspec": true,
+    "scss": true,
+    "ssh-config": true,
+    "tmux": true,
+    "tokyo-night": true,
+    "toml": true,
+    "tree-sitter-query": true,
+    "xml": true
+  }
+}
