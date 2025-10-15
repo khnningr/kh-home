@@ -13,6 +13,7 @@ else
   export GPG_TTY="$TTY"
 fi
 
+
 [ -d "$HOME"/.local ] || mkdir -p "$HOME"/.local
 [ -d "$HOME"/.local/bin ] || mkdir -p "$HOME"/.local/bin
 [ -d "$XDG_STATE_HOME"/fonts ] || mkdir -p "$XDG_STATE_HOME"/zsh
