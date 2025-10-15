@@ -25,6 +25,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 export GOPATH="$XDG_DATA_HOME/go"
+
 # /home/kh/.cargo
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 # /home/kh/.rustup
@@ -49,6 +50,8 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 # Other programs
 # export QT_QPA_PLATFORMTHEME="gtk3"        # Have QT use gtk2 theme.
 export _JAVA_AWT_WM_NONREPARENTING=1      # Fix for Java applications in dwm
+
+[ -d "$XDG_CONFIG_HOME"/cargo/env ] || mkdir -p "$XDG_CONFIG_HOME"/cargo/env
 . "$XDG_CONFIG_HOME/cargo/env"
 
 # Corregir fonts en ventanas JAVA.
