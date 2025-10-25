@@ -2,6 +2,12 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 version = 3
 final_space = true
 
+[upgrade]
+notice = true
+interval = "168h"
+auto = false
+source = "cdn"
+
 [palette]
   black = '#262B44'
   blue = '#4B95E9'

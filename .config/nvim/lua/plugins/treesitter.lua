@@ -57,7 +57,7 @@ return {
         init_selection = "<CR>",
         node_incremental = "<CR>",
         scope_incremental = "<TAB>",
-        node_decremental = "<S-TAB>",k
+        node_decremental = "<S-TAB>",
       },
     },
   })
