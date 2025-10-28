@@ -9,8 +9,8 @@
 
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" }) 
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" }) 
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 
 -- Buffer navigation
@@ -31,8 +31,8 @@ vim.keymap.set("n", "<C-Down>", "<Cmd>resize -2<CR>", { desc = "Decrease window 
 vim.keymap.set("n", "<C-Left>", "<Cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", "<Cmd>vertical resize +2<CR>", { desc = "Increase window width" })
 
-vim.keymap.set('n', '<leader>q', '<Cmd>close<CR>', { desc = 'Cerrar ventana actual' })
-vim.keymap.set('n', '<leader>o', '<cmd>only<cr>', { desc = 'Cerrar todos los splits excepto actual' })
+vim.keymap.set("n", "<leader>q", "<Cmd>close<CR>", { desc = "Cerrar ventana actual" })
+vim.keymap.set("n", "<leader>o", "<cmd>only<cr>", { desc = "Cerrar todos los splits excepto actual" })
 
 -- Better indenting in visual mode
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
@@ -47,3 +47,6 @@ vim.keymap.set("n", "<leader>rc", "<Cmd>e ~/.config/nvim/init.lua<CR>", { desc =
 -- File Explorer
 vim.keymap.set("n", "<leader>m", "<Cmd>NvimTreeFocus<CR>", { desc = "Focus on File Explorer" })
 vim.keymap.set("n", "<leader>e", "<Cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+
+vim.keymap.set("i", "kj", "<ESC>", { desc = "[P]Exit insert mode with kj" })
+
