@@ -1,17 +1,27 @@
+-- ================================================================================================
+-- TITLE : nvim-lspconfig
+-- ABOUT : Quickstart configurations for the built-in Neovim LSP client.
+-- LINKS :
+--   > github                  : https://github.com/neovim/nvim-lspconfig
+--   > mason.nvim (dep)        : https://github.com/mason-org/mason.nvim
+--   > efmls-configs-nvim (dep): https://github.com/creativenull/efmls-configs-nvim
+--   > cmp-nvim-lsp (dep)      : https://github.com/hrsh7th/cmp-nvim-lsp
+-- ================================================================================================
 -- Servidores de Lenguaje en Mason:
 -- NOTA: Para instalar un servidor, se usa la 'i'.
 --    lua-language-server, luacheck, stylua
 --    efm,
 
+
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} },
-		"creativenull/efmls-configs-nvim",
-		"hrsh7th/cmp-nvim-lsp",
+		{ "mason-org/mason.nvim", opts = {} }, -- LSP/DAP/Linter installer & manager
+		"creativenull/efmls-configs-nvim", -- Preconfigured EFM Language Server setups
+		"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for LSP-based completion
 	},
 	config = function()
-		require("utils.diagnostics").setup()
-		require("servers")
+require("utils.diagnostics").setup()
+require("servers")
 	end,
 }

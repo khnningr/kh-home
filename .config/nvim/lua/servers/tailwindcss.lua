@@ -1,25 +1,21 @@
 -- ================================================================================================
--- TITLE : ts_ls (TypeScript Language Server) LSP Setup
+-- TITLE : tailwindcss LSP Setup
 -- LINKS :
---   > github: https://github.com/typescript-language-server/typescript-language-server
+--   > github: https://github.com/tailwindlabs/tailwindcss-intellisense
 -- ================================================================================================
 
 --- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
 --- @return nil
 return function(capabilities)
-	vim.lsp.config("ts_ls", {
+	vim.lsp.config('tailwindcss', {
 		capabilities = capabilities,
 		filetypes = {
-			"typescript",
 			"javascript",
+      "javascriptreact",
+			"typescript",
 			"typescriptreact",
-			"javascriptreact",
+			"vue",
+			"svelte",
 		},
-		settings = {
-			typescript = {
-				indentStyle = "space",
-				indetSize = 2,
-			},
-		},
-	})
+  })
 end

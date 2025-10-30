@@ -1,26 +1,26 @@
 -- ================================================================================================
--- TITLE : lua_ls (Lua Language Server) LSP Setup
+-- TITLE : yamlls (YAML Language Server) LSP Setup
 -- LINKS :
---   > github: https://github.com/LuaLS/lua-language-server
+--   > github: https://github.com/redhat-developer/yaml-language-server
 -- ================================================================================================
 
 --- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
 --- @return nil
 return function(capabilities)
-	vim.lsp.config('lua_ls', {
+	vim.lsp.config("yamlls", {
 		capabilities = capabilities,
 		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" },
+			yaml = {
+				schemas = {
+					["https://json.schemastore.org/composer.json"] = "composer.json",
+					["https://json.schemastore.org/docker-compose.json"] = "docker-compose*.yml",
 				},
-				workspace = {
-					library = {
-						vim.fn.expand("$VIMRUNTIME/lua"),
-						vim.fn.expand("$XDG_CONFIG_HOME") .. "/nvim/lua",
-					},
+				validate = true,
+				format = {
+					enable = true,
 				},
 			},
 		},
+		filetypes = { "yaml" },
 	})
 end

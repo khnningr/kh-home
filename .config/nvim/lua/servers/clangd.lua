@@ -1,25 +1,18 @@
 -- ================================================================================================
--- TITLE : ts_ls (TypeScript Language Server) LSP Setup
+-- TITLE : clangd (C/C++ Language Server) LSP Setup
 -- LINKS :
---   > github: https://github.com/typescript-language-server/typescript-language-server
+--   > website: https://clangd.llvm.org/
 -- ================================================================================================
 
 --- @param capabilities table LSP client capabilities (typically from nvim-cmp or similar)
 --- @return nil
 return function(capabilities)
-	vim.lsp.config("ts_ls", {
+	vim.lsp.config("clangs", {
 		capabilities = capabilities,
-		filetypes = {
-			"typescript",
-			"javascript",
-			"typescriptreact",
-			"javascriptreact",
+		cmd = {
+			"clangd",
+			"--offset-encoding=utf16",
 		},
-		settings = {
-			typescript = {
-				indentStyle = "space",
-				indetSize = 2,
-			},
-		},
+		filetypes = { "c", "cpp" },
 	})
 end

@@ -1,7 +1,13 @@
 globals = {
-    "vim"
+	"vim",
 }
 
 read_globals = {
-    "use"
+	"use",
+}
+
+ignore = {
+	"212", -- Unused argument (common in callbacks)
+	"213", -- Unused loop variable
+	"631", -- Line is too long (if you prefer longer lines)
 }
