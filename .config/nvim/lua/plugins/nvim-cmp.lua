@@ -2,14 +2,15 @@
 -- TITLE : nvim-cmp
 -- ABOUT : A completion plugin written in lua.
 -- LINKS :
---   > github             : https://github.com/hrsh7th/nvim-cmp
---   > lspkind (dep)      : https://github.com/onsails/lspkind.nvim
---   > cmp_luasnip (dep)  : https://github.com/saadparwaiz1/cmp_luasnip
---   > luasnip (dep)      : https://github.com/L3MON4D3/LuaSnip
---   > friendly-snippets  : https://github.com/rafamadriz/friendly-snippets
---   > cmp-nvim-lsp (dep) : https://github.com/hrsh7th/cmp-nvim-lsp
---   > cmp-buffer (dep)   : https://github.com/hrsh7th/cmp-buffer
---   > cmp-path (dep)     : https://github.com/hrsh7th/cmp-path
+--   > github                             : https://github.com/hrsh7th/nvim-cmp
+--   > lspkind (dep)                      : https://github.com/onsails/lspkind.nvim
+--   > cmp_luasnip (dep)                  : https://github.com/saadparwaiz1/cmp_luasnip
+--   > luasnip (dep)                      : https://github.com/L3MON4D3/LuaSnip
+--   > friendly-snippets (dep)            : https://github.com/rafamadriz/friendly-snippets
+--   > cmp-nvim-lsp (dep)                 : https://github.com/hrsh7th/cmp-nvim-lsp
+--   > cmp-buffer (dep)                   : https://github.com/hrsh7th/cmp-buffer
+--   > cmp-path (dep)                     : https://github.com/hrsh7th/cmp-path
+--   > cmp-nvim-lsp-signature-help (dep)  : https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
 -- ================================================================================================
 
 return {
@@ -41,14 +42,12 @@ return {
 					luasnip.lsp_expand(args.body)
 				end,
 			},
+
 			formatting = {
-				-- Para desactivar el autocompletado de IA,
-				-- comenta las líneas con 'Desactivar IA'
 				format = lspkind.cmp_format({
-					-- before = require("tailwind-tools.cmp".lspkind_format,) -- Desactivar IA
 					mode = "symbol_text",
 					menu = {
-						codeium = "", -- Desactivar IA
+						codeium = "",
 						luasnip = "",
 						buffer = "",
 						path = "",
@@ -67,12 +66,13 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			}),
 
-			source = {
+			sources = {
+				{ name = "codeium" },
 				{ name = "luasnip" },
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "path" },
-				{ name = "codeium" }, -- Desactivar IA
+				{ name = "nvim_lsp_signature_help" },
 			},
 		})
 	end,
