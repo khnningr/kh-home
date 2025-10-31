@@ -17,8 +17,9 @@ export XDG_SCREENSHOTS_DIR="$HOME/Imágenes/screenshots"
 export XDG_RUNTIME_DIR="/run/user/$UID"
 
 # Añadir directorios al PATH.
-export PATH="$HOME/.local/bin:$PATH"
 
+# export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$(print -l $HOME/.local/bin/**/*(/) | tr '\n' ':')$PATH"
 #export XDG_DATA_HOME/zed/logs
 
 # ~/ Clean-up:
