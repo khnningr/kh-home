@@ -18,6 +18,7 @@ fi
 [ -d "$HOME"/.local/bin ] || mkdir -p "$HOME"/.local/bin
 [ -d "$XDG_STATE_HOME"/fonts ] || mkdir -p "$XDG_STATE_HOME"/zsh
 [ -d "$XDG_CONFIG_HOME"/cargo/env ] || mkdir -p "$XDG_CONFIG_HOME"/cargo/env
+[ -d "$XDG_CONFIG_HOME/wgetrc" ] || mkdir -p "$XDG_CONFIG_HOME/wgetrc"
 
 # Use XDG dirs for completion and history files
 [ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh

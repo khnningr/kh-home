@@ -3,24 +3,6 @@
 set -euo pipefail
 
 # Apariencia
-pkg_theme=(
-	"qt5ct"
-	"qt6ct-kde"
-	"kvantum"
-	"kvantum-qt5"
-	"qt5-wayland"
-	"qt6-wayland"
-	"nwg-look"
-	"gtk-engine-murrine"
-	"gsettings-desktop-schemas"
-	"gsettings-system-schemas"
-)
-
-pkg_theme_aur=(
-	"hellwal"
-	"syshud"
-	"matugen-bin"
-)
 
 pkg_thunar=(
 	"xdg-user-dirs"
@@ -69,49 +51,14 @@ pkg_kde=(
 
 # Juegos
 
-pkg_wine=(
-	"wine-staging"
-	"wine-mono"
-	"wine-gecko"
-	"winetricks"
-)
-# Puedes usar el comando 'wine winecfg'
-# para configurar Wine con una GUI.
-
-pkg_proton=(
-	"steam"
-	"protonplus"
-	"bottles"
-	"heroic-games-launcher-bin"
-)
-
 pkg_proton_aur=(
 	"protonfixes"
 )
 
 # paru -S --needed --noconfirm "${pkg_proton_aur[@]}"
 
-pkg_retro=(
-	"retroarch"
-	"retroarch-assets-xmb"
-	"retroarch-assets-ozone"
-)
-
-pkg_mango=(
-	"mangohud"
-	"lib32-mangohud"
-)
-
 # Para usar mango en Steam, usar el comando: 'mangohud %command%'
 # Referencias: https://github.com/flightlessmango/MangoHud
-
-pkg_mango_aur=(
-	"mangojuice"
-)
-
-pkg_mods_aur=(
-	"nexusmods-app-bin"
-)
 
 # Navegadores
 pkg_browser=(

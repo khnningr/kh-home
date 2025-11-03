@@ -1,0 +1,6 @@
+# sudo chown -R usuario:grupo /punto/de/montaje
+
+sudo chown -R kh:kh /media/kh
+# -R → aplica recursivamente a todos los archivos.
+# usuario:grupo → generalmente el grupo tiene el mismo nombre que el usuario.
+# /mnt/datos → es la carpeta donde está montado el disco.
