@@ -5,5 +5,5 @@ mkdir -p $HOME/.local/bin/
 ```
 
 ```
-git clone https://github.com/khnningr/kh-home.git
+git clone https://github.com/khnningr/kh-home.git $HOME
 ```
