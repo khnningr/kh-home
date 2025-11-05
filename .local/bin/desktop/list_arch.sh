@@ -73,30 +73,6 @@ pkg_msg=(
 	"vesktop"
 )
 
-# Utilidades
-pkg_utils=(
-	"fragments"
-	"kooha"
-	"pinta"
-	"obsidian"
-	"handbrake"
-	"btop"
-	"obs-studio"
-	"ffmpegthumbnailer"
-	"zathura"
-	"zathura-cb"
-	"zathura-pdf-mupdf"
-	"imv"
-	"copyq"
-	"wf-recorder"
-)
-
-pkg_utils_aur=(
-	"ventoy"
-	"calligraphy"
-	"headsetcontrol-git"
-)
-
 pkg_android=(
 	"android-tools"
 )
