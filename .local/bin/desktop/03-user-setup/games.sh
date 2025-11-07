@@ -19,7 +19,7 @@ pkg_wine=(
 pkg_proton=(
 	"steam"
 	"protonplus"
-	 # "bottles"
+	# "bottles"
 	"heroic-games-launcher-bin"
 )
 
@@ -31,6 +31,7 @@ pkg_retro=(
 
 pkg_mods_aur=(
 	"nexusmods-app-bin"
+	"faugus-launcher"
 )
 
 if command -v pacman &>/dev/null; then
