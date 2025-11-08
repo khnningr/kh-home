@@ -25,6 +25,25 @@ for i in "${!HELPER[@]}"; do
 done
 
 ELEGIR_HELPER=$(gum choose --no-limit "${!HELPER[@]}")
+echo "${ELEGIR_HELPER}"
+
+if echo "${ELEGIR_HELPER}" | grep -q "Instalado"; then
+	CONFIRMAR_HELPER=$(echo "${ELEGIR_HELPER}" | sed 's/ (Instalado)//')
+else
+	CONFIRMAR_HELPER="${ELEGIR_HELPER}"
+fi
+
+BIN=$(gum confirm \
+	--affirmative="${CONFIRMAR_HELPER}-bin" \
+	--negative="${CONFIRMAR_HELPER}" \
+	"Qué versión de ${CONFIRMAR_HELPER} deseas instalar?")
+
+if [[ "${BIN}" -eq 0 ]]; then
+	echo "Binario"
+	git clone "${HELPER[$ELEGIR_HELPER]}" "$tempdir/${CONFIRMAR_HELPER}"
+	cd "$tempdir/${CONFIRMAR_HELPER}" && makepkg -si
+fi
+
 exit 0
 
 if echo "${ELEGIR_HELPER}" | grep -q "paru"; then

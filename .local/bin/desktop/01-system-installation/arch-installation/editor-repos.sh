@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-#set -euo pipefail
+set -euo pipefail
+
+if ! command -v "pacman" &>/dev/null; then
+	echo "Este script es exclusivo para Arch Linux"
+	exit 1
+fi
 
 # Validar la instalación de Gum
 if ! command -v gum &>/dev/null; then
@@ -28,13 +33,6 @@ STYLE_PADDING="1 2"
 STYLE_ALIGN="center"
 STYLE_WIDTH="50"
 STYLE_BORDER_FOREGROUND="212"
-
-export GUM_STYLE_BORDER="double"
-export GUM_STYLE_MARGIN="1"
-export GUM_STYLE_PADDING="1 2"
-export GUM_STYLE_ALIGN="center"
-export GUM_STYLE_WIDTH="50"
-export GUM_STYLE_BORDER_FOREGROUND="212"
 
 # Diccionario con los repositorios
 declare -A REPOS=(
