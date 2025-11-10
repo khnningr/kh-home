@@ -11,37 +11,42 @@ URL="https://aur.archlinux.org"
 
 declare -A HELPER=(
 	#	["paru-bin"]="${URL}/paru-bin.git"
-	["paru"]="${URL}/paru.git"
+	["paru"]="${URL}/paru"
 	#	["yay-bin"]="${URL}/yay-bin.git"
-	["yay"]="${URL}/yay.git"
+	["yay"]="${URL}/yay"
 )
+
+declare -A OPC_HELPER
 
 for i in "${!HELPER[@]}"; do
 	if command -v "${i}" &>/dev/null; then
-		echo "$i"
-		unset HELPER["${i}"]
-		HELPER+=(["${i} (Instalado)"]="${URL}/${i}")
+		# unset HELPER["${i}"]
+		OPC_HELPER+=(["${i} (Instalado)"]="${URL}/${i}")
+	else
+		OPC_HELPER+=(["${i}"]="${URL}/${i}")
 	fi
 done
 
-ELEGIR_HELPER=$(gum choose --no-limit "${!HELPER[@]}")
-echo "${ELEGIR_HELPER}"
+ELEGIR_HELPER=$(gum choose --no-limit "${!OPC_HELPER[@]}")
 
-if echo "${ELEGIR_HELPER}" | grep -q "Instalado"; then
-	CONFIRMAR_HELPER=$(echo "${ELEGIR_HELPER}" | sed 's/ (Instalado)//')
+for i in "${!HELPER[@]}"; do
+	if echo "${ELEGIR_HELPER}" | grep -q "${i}"; then
+		AUR_HELPER=${i}
+	fi
+done
+# yay-bin-debug paru-bin-debug
+# Hacer validacion del debug instalado si actualmente es el mismo, en caso de cambiar de bin a normal o viseversa para evitar conflictos de paquetes
+
+echo -e "${HELPER[$AUR_HELPER]}"
+
+PLACE_CONFIRM="Qué versión de ${AUR_HELPER} deseas instalar?"
+
+if gum confirm --affirmative="${AUR_HELPER}-bin" --negative="${AUR_HELPER}" "${PLACE_CONFIRM}"; then
+	git clone "${HELPER[$AUR_HELPER]}-bin.git" "$tempdir/${AUR_HELPER}-bin"
+	cd "$tempdir/${AUR_HELPER}-bin" && makepkg -si
 else
-	CONFIRMAR_HELPER="${ELEGIR_HELPER}"
-fi
-
-BIN=$(gum confirm \
-	--affirmative="${CONFIRMAR_HELPER}-bin" \
-	--negative="${CONFIRMAR_HELPER}" \
-	"Qué versión de ${CONFIRMAR_HELPER} deseas instalar?")
-
-if [[ "${BIN}" -eq 0 ]]; then
-	echo "Binario"
-	git clone "${HELPER[$ELEGIR_HELPER]}" "$tempdir/${CONFIRMAR_HELPER}"
-	cd "$tempdir/${CONFIRMAR_HELPER}" && makepkg -si
+	git clone "${HELPER[$AUR_HELPER]}.git" "$tempdir/${AUR_HELPER}"
+	cd "$tempdir/${AUR_HELPER}" && makepkg -si
 fi
 
 exit 0
