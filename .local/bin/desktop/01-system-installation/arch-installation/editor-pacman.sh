@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+# Este script solo funciona en Arch
 if ! command -v "pacman" &>/dev/null; then
 	echo "Este script es exclusivo para Arch Linux"
 	exit 1
@@ -42,7 +43,7 @@ declare -A REPOS=(
 )
 
 # Diccionario para guardar los repositorios activos
-declare -A REPOS_ACTIVOS
+declare -A REPOS_ACTIVOS=()
 
 # Archivo de configuración de PACMAN
 PACMAN_CONF="/etc/pacman.conf"
@@ -83,6 +84,7 @@ if [[ "${#REPOS_ACTIVOS[@]}" -gt 0 ]]; then
 				REPOS+=(["${i}"]="${REPOS_ACTIVOS[${i}]}")
 				sudo sed -i "/^\[$i\]/,/^$/d" "${PACMAN_CONF}"
 				unset REPOS_ACTIVOS["${i}"]
+				sudo sed -i ':a;/^[[:space:]]*$/{$d;N;ba}' "${PACMAN_CONF}"
 			fi
 		done
 
@@ -145,33 +147,3 @@ sudo pacman -Sy
 echo ""
 
 gum style --foreground 212 "Repositorios agregados"
-
-exit 0
-OPCIONES=(
-	"Agregar"
-	"Eliminar"
-	"Ver activos"
-	"Volver"
-)
-
-ELEGIR_OPCION=$(gum choose "${OPCIONES[@]}")
-
-case "${ELEGIR_OPCION}" in
-"Agregar")
-	echo "Agregar"
-	;;
-"Eliminar")
-	echo "Eliminar"
-	;;
-"Ver activos")
-	echo "Ver activos"
-	;;
-*)
-	echo "salir"
-	;;
-esac
-
-echo "${REPOS[@]}"
-if grep -q "[mesa-git]" "${PACMAN_CONF}"; then
-	echo "eliminar mesa git"
-fi

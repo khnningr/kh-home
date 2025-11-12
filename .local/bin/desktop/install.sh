@@ -170,3 +170,65 @@ fi
 . ./default_applications.sh
 
 . ./zsh.sh
+
+
+exit 0
+OPCIONES=(
+	"Agregar"
+	"Eliminar"
+	"Ver activos"
+	"Volver"
+)
+
+ELEGIR_OPCION=$(gum choose "${OPCIONES[@]}")
+
+case "${ELEGIR_OPCION}" in
+"Agregar")
+	echo "Agregar"
+	;;
+"Eliminar")
+	echo "Eliminar"
+	;;
+"Ver activos")
+	echo "Ver activos"
+	;;
+*)
+	echo "salir"
+	;;
+esac
+
+echo "${REPOS[@]}"
+if grep -q "[mesa-git]" "${PACMAN_CONF}"; then
+	echo "eliminar mesa git"
+fi
+
+
+exit 0
+OPCIONES=(
+	"Agregar"
+	"Eliminar"
+	"Ver activos"
+	"Volver"
+)
+
+ELEGIR_OPCION=$(gum choose "${OPCIONES[@]}")
+
+case "${ELEGIR_OPCION}" in
+"Agregar")
+	echo "Agregar"
+	;;
+"Eliminar")
+	echo "Eliminar"
+	;;
+"Ver activos")
+	echo "Ver activos"
+	;;
+*)
+	echo "salir"
+	;;
+esac
+
+echo "${REPOS[@]}"
+if grep -q "[mesa-git]" "${PACMAN_CONF}"; then
+	echo "eliminar mesa git"
+fi

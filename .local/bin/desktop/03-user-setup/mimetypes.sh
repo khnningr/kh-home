@@ -124,3 +124,7 @@ xdg-mime default ${open_file} application/zip
 xdg-mime default ${open_file} application/x-tar
 
 xdg-mime default kitty-open.desktop inode/directory
+
+# Terminal
+gsettings set org.gnome.desktop.default-applications.terminal exec-arg '-e'
+gsettings set org.gnome.desktop.default-applications.terminal exec 'wezterm'
