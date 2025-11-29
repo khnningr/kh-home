@@ -2,13 +2,28 @@
 
 set -euo pipefail
 
-if command -v pacman &> /dev/null; then
-    . ./list_arch.sh
-    sudo pacman -S --needed "${pkg_virt_manager[@]}"
+pkg_virt_manager=(
+	"virt-manager"
+	"qemu-full"
+	"vde2"
+	"virt-viewer"
+	"ebtables"
+	"iptables"
+	"dnsmasq"
+	"bridge-utils"
+	"ovmf"
+	"swtpm"
+	"dmidecode"
+	"qemu-common"
+	"libvirt"
+)
+
+if command -v pacman &>/dev/null; then
+	sudo pacman -S --needed "${pkg_virt_manager[@]}"
 fi
 
-if command -v dnf &> /dev/null; then
-    sudo dnf install @virtualization
+if command -v dnf &>/dev/null; then
+	sudo dnf install @virtualization
 fi
 
 # Descomentar las lineas 85 y 108.
@@ -17,7 +32,7 @@ fi
 # sudo nano /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/' /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_socket_group = "libvirt"/' \
-  /etc/libvirt/libvirtd.conf
+	/etc/libvirt/libvirtd.conf
 
 # Añadir el usuario actual al grupo kvm y libvirt.
 sudo usermod -a -G kvm,libvirt $(whoami)
@@ -35,11 +50,11 @@ sudo systemctl enable --now libvirtd.service
 # user = "usuario"
 # group = "libvirt"
 sudo sed -i 's/^#user = "libvirt-qemu"/user = "'"$(whoami)"'"/' \
-  /etc/libvirt/qemu.conf
+	/etc/libvirt/qemu.conf
 sudo sed -i 's/^#group = "libvirt-qemu"/group = "'"$(whoami)"'"/' \
-  /etc/libvirt/qemu.conf
+	/etc/libvirt/qemu.conf
 
- # Reiniciar el servicio.
+# Reiniciar el servicio.
 sudo systemctl restart libvirtd.service
 
 # Configuración de redes virtuales.

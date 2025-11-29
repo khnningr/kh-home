@@ -32,6 +32,7 @@ pkg_retro=(
 pkg_mods_aur=(
 	"nexusmods-app-bin"
 	"faugus-launcher"
+	"minecraft-launcher"
 )
 
 if command -v pacman &>/dev/null; then

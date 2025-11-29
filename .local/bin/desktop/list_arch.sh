@@ -181,22 +181,6 @@ pkg_python_aur=(
 
 # paru -S --needed --noconfirm "${pkg_python_aur[@]}"
 
-pkg_virt_manager=(
-	"virt-manager"
-	"qemu-full"
-	"vde2"
-	"virt-viewer"
-	"ebtables"
-	"iptables"
-	"dnsmasq"
-	"bridge-utils"
-	"ovmf"
-	"swtpm"
-	"dmidecode"
-	"qemu-common"
-	"libvirt"
-)
-
 pkg_mimetype=(
 	"xdg-utils"
 	"plocate" # locate -i «programa»
