@@ -122,15 +122,6 @@ gum style \
 # Choose para elegir cuales repositorios se agregan
 ELEGIR_AGREGAR=$(gum choose --no-limit "${!REPOS[@]}")
 
-# Válida si el repositorio elegido se encuentra en el diccionario de
-# repositorios disponibles para agregar, de ser el caso, lo agrega
-for i in "${!REPOS[@]}"; do
-	if echo "${ELEGIR_AGREGAR}" | grep -q "${i}"; then
-		echo "${i}"
-		echo -e "\n${REPOS[$i]}" | sudo tee -a "$PACMAN_CONF" >/dev/null
-	fi
-done
-
 # Válida si el repositorio elegido es chaotic-aur e instala
 # lo que es necesario para el mismo
 # Referencia: https://aur.chaotic.cx
@@ -140,6 +131,15 @@ if echo "${ELEGIR_AGREGAR}" | grep -q "chaotic-aur"; then
 	sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
 	sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 fi
+
+# Válida si el repositorio elegido se encuentra en el diccionario de
+# repositorios disponibles para agregar, de ser el caso, lo agrega
+for i in "${!REPOS[@]}"; do
+	if echo "${ELEGIR_AGREGAR}" | grep -q "${i}"; then
+		echo "${i}"
+		echo -e "\n${REPOS[$i]}" | sudo tee -a "$PACMAN_CONF" >/dev/null
+	fi
+done
 
 # Sincroniza los repositorios
 sudo pacman -Sy

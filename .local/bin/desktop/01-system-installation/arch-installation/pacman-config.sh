@@ -65,4 +65,9 @@ Include = /etc/pacman.d/mirrorlist
 [extra]
 Include = /etc/pacman.d/mirrorlist
 EOF
+
+clear
+
 fi
+
+# Avisar que ya se modifico.

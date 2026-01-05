@@ -95,13 +95,13 @@ done
 
 # Valida si el helper elegido es paru e instala sus dependencias
 if echo "${AUR_HELPER}" | grep -q "paru"; then
-	sudo pacman -S --needed --noconfirm base-devel rustup
+	sudo pacman -S --needed --noconfirm git base-devel rustup
 	rustup default stable
 fi
 
 # Valida si el helper elegido es yay e instala sus dependencias
 if echo "${AUR_HELPER}" | grep -q "yay"; then
-	sudo pacman -S --needed --noconfirm base-devel yay
+	sudo pacman -S --needed --noconfirm git base-devel
 fi
 
 # Mensaje de confirmación para el confirm
